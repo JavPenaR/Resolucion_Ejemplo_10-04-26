@@ -7,7 +7,7 @@ Microservicio Spring Boot para administrar el préstamo de salas de estudio, con
 - Spring Boot 3.2.5
 - Java 17
 - Spring Data JPA
-- H2 Database (en memoria)
+- MySQL 8.0
 - Lombok
 - Spring Validation
 - Maven
@@ -78,11 +78,26 @@ mvn clean package
 java -jar target/reservas-salas-1.0.0.jar
 ```
 
+## Requisitos Previos
+
+### Base de Datos MySQL
+Antes de ejecutar la aplicación, es necesario:
+
+1. **Tener MySQL instalado y corriendo** en `localhost:3306`
+2. **Crear la base de datos**:
+```sql
+CREATE DATABASE reservas_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+3. **Verificar acceso del usuario root** sin contraseña
+
 ## Base de Datos
-- **H2 Console**: http://localhost:8080/h2-console
-- **JDBC URL**: `jdbc:h2:mem:reservasdb`
-- **Usuario**: `sa`
-- **Contraseña**: `password`
+- **Motor**: MySQL 8.0
+- **Base de datos**: `reservas_db`
+- **Host**: `localhost:3306`
+- **Usuario**: `root`
+- **Contraseña**: (vacía)
+- **Dialecto**: `MySQL8Dialect`
+- **DDL Strategy**: `update` (mantiene esquema existente)
 
 ## Ejemplos de Uso
 
